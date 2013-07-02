@@ -44,13 +44,23 @@ public final class Candlestick {
 	public Calendar getData() {
 		return data;
 	}
-	
-	public boolean isAlta(){
+
+	public boolean isAlta() {
 		return this.abertura < this.fechamento;
 	}
-	
-	public boolean isBaixa(){
+
+	public boolean isBaixa() {
 		return this.abertura > this.fechamento;
 	}
 
+	public String toString() {
+
+		return "[Abertura: " + abertura
+				+ ", Fechamento: " + fechamento
+				+ ", Mínima: " + minimo
+				+ ", Máxima: " + maximo
+				+ ", Volume: " + volume
+				+ ", Data: " + data + "]";
+
+	}
 }
