@@ -2,13 +2,18 @@ package br.com.caelum.argentum.modelo;
 
 import java.util.Calendar;
 
-public final class Negociacao {
+public final class Negociacao implements Cloneable {
 	
 	private final double preco;
 	private final int quantidade;
 	private final Calendar data;
 	
-	public Negociacao(double preco, int quantidade, Calendar data) {
+	public Negociacao(double preco, int quantidade, Calendar data) throws IllegalArgumentException {
+	
+		if (data == null) {
+			throw new IllegalArgumentException("Data não pode ser nula");
+		}
+		
 		this.preco = preco;
 		this.quantidade = quantidade;
 		this.data = data;
@@ -22,11 +27,13 @@ public final class Negociacao {
 		return quantidade;
 	}
 
-	public Calendar getData() {
-		return data;
+	public Calendar getData(){
+		return (Calendar) this.data.clone();
 	}
 
 	public double getVolume(){
 		return preco * quantidade;
 	}
+	
+	
 }
