@@ -14,7 +14,9 @@ public class LeitorXML {
 		
 		XStream stream = new XStream(new DomDriver());
 		stream.alias("negociacao", Negociacao.class);
+		
 		return (List<Negociacao>) stream.fromXML(inputStream);
 		
 	}
+	
 }
